@@ -20,12 +20,13 @@ const modes = reactive([
 const activeRole = ref('draw');
 
 const pointerImg = computed(() => {
+  const baseUrl = import.meta.env.BASE_URL;
   let res;
   
   if (activeRole.value === 'draw') {
-    res = 'url(/brush.svg) 0 32, pointer';
+    res = `url("${baseUrl}/brush.svg") 0 31, pointer`;
   }else if (activeRole.value === 'erase') {
-    res = 'url(/eraser.svg) 16 16, pointer';
+    res = `url("${baseUrl}/eraser.svg") 16 16, pointer`;
   }
 
   return res;
@@ -144,7 +145,6 @@ function changeActive(role) {
   max-width: 100%;
   transition-duration: var(--main-duration);
   touch-action: none;
-  cursor: url(/eraser.svg) 0 32, pointer;
 }
 
 .canvas-menu {
