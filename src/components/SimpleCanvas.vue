@@ -1,19 +1,19 @@
 <script setup>
-import {useTemplateRef, ref, reactive, computed, onMounted} from 'vue'
+import { useTemplateRef, ref, reactive, computed, onMounted } from 'vue';
 import MenuButton from './MenuButton.vue';
 
 const isChanging = ref(false);
 const modes = reactive([
   {
     id: 1,
-    name: "Кисть",
-    role: "draw",
+    name: 'Кисть',
+    role: 'draw',
     lineWidth: 2,
   }, 
   {
     id: 2,
-    name: "Ластик",
-    role: "erase",
+    name: 'Ластик',
+    role: 'erase',
     lineWidth: 40,
   }, 
 ]);
@@ -22,27 +22,27 @@ const activeRole = ref('draw');
 const pointerImg = computed(() => {
   let res;
   
-  if (activeRole.value === "draw") {
-    res = "url(/brush.svg) 0 32, pointer"
-  }else if (activeRole.value === "erase") {
-    res = "url(/eraser.svg) 16 16, pointer";
+  if (activeRole.value === 'draw') {
+    res = 'url(/brush.svg) 0 32, pointer';
+  }else if (activeRole.value === 'erase') {
+    res = 'url(/eraser.svg) 16 16, pointer';
   }
 
   return res;
-})
+});
 
 
 
-const canvas = useTemplateRef("canvas");
+const canvas = useTemplateRef('canvas');
 let ctx = null;
 
 onMounted(() => {
-  ctx = canvas.value.getContext("2d");
+  ctx = canvas.value.getContext('2d');
 
   ctx.lineWidth = modes.find((el) => el.role === activeRole.value).lineWidth;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
-})
+});
 
 function getPointerCoordinates(event) {
   const rect = canvas.value.getBoundingClientRect();
@@ -50,18 +50,18 @@ function getPointerCoordinates(event) {
   return {
     x: (event.clientX - rect.left) / rect.width *  canvas.value.width,
     y: (event.clientY - rect.top) / rect.height *  canvas.value.height,
-  } 
+  }; 
 }
 
 function startDrawing(event) {
-  const {x, y} = getPointerCoordinates(event);
+  const { x, y } = getPointerCoordinates(event);
 
   isChanging.value = true;
 
   
-  if (activeRole.value == "draw") {
-    ctx.globalCompositeOperation = 'source-over'
-  } else if (activeRole.value == "erase") {
+  if (activeRole.value === 'draw') {
+    ctx.globalCompositeOperation = 'source-over';
+  } else if (activeRole.value === 'erase') {
     ctx.globalCompositeOperation = 'destination-out';
   }
   
@@ -77,7 +77,7 @@ function draw(event) {
     return;
   }
 
-  const {x, y} = getPointerCoordinates(event);
+  const { x, y } = getPointerCoordinates(event);
 
   ctx.lineTo(x, y);
   ctx.stroke();
@@ -117,7 +117,7 @@ function changeActive(role) {
       <li class="canvas-menu_button" v-for="mode in modes" :key="mode.id">
         <MenuButton 
           :name="mode.name" 
-          :active="activeRole == mode.role"
+          :active="activeRole === mode.role"
           @click="changeActive(mode.role)"></MenuButton>
       </li>
     </menu>
