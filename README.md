@@ -1,38 +1,41 @@
-# canvas
+# Инструкция для запуска проекта
 
-This template should help get you started developing with Vue 3 in Vite.
+Эта инструкция поможет Вам установить и запустить у себя проект `digitalleague-test`. 
 
-## Recommended IDE Setup
+Уже собранный рабочий проект вы можете опробовать [здесь](https://ramazanmak.github.io/digitalleague-test/).
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Необходимые программы 
+Для успешной работы проекта необходимо иметь установленным Node.js с менеджером пакетов NPM. 
+Подробности установки можно изучить на [сайте](https://nodejs.org/en/download). 
 
-## Recommended Browser Setup
+## Запуск проекта
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+1. Склонируйте данный репозиторий на своё устройство:
+```bash
+git clone https://github.com/Ramazanmak/digitalleague-test.git
+```
+2. Перейдите в созданную папку:
+```bash
+cd digitalleague-test/
+```
+3. Установите зависимости:
+```bash
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
+4. Запустите `dev`-сервер:
+```bash
 npm run dev
 ```
+5. Перейдите по указанной в терминале ссылке. Скорее всего это: `http://localhost:5173/digitalleague-test/`.
 
-### Compile and Minify for Production
 
-```sh
+## Production-сборка
+4. Запустите локальную сборку проекта:
+```bash
 npm run build
 ```
+5. Запустите предпросмотр собранного проекта локально:
+```bash
+npm run preview
+```
+6. Перейдите по указанной в терминале ссылке. Скорее всего это: `http://localhost:4173/digitalleague-test/`.
