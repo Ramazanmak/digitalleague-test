@@ -2,13 +2,13 @@
 const props = defineProps({
   name:{
     type: String,
-    default: "Кнопка",
+    default: 'Кнопка',
   },
   active: {
     type: Boolean,
     default: false,
-  }
-})
+  },
+});
 
 </script>
 
