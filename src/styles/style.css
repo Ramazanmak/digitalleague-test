@@ -1,0 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --main-first: #323030;
+  --main-second: #efe7e7;
+  --accent-first: #da5e00;
+  --main-duration: 0.3s;
+}
