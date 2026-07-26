@@ -53,7 +53,7 @@ onMounted(() => {
   window.addEventListener('keydown', goBack);
   currentSnapshot.value = ctx.getImageData(0, 0, canvas.value.width, canvas.value.height);
   history.addState(currentSnapshot.value);
-  
+
 });
 
 onBeforeUnmount(() => {
@@ -135,6 +135,7 @@ function stopDrawing(event) {
     canvas.value.releasePointerCapture(event.pointerId);
   }
 
+  
 }
 
 function changeActive(role) {
@@ -311,7 +312,7 @@ function toggleTools() {
   gap: 10px;
   background-color: var(--main-first);
   padding:1em;
-  width: 70%;
+  width: 82%;
   max-width: 290px;
   border-radius: 1em;
   position: absolute;
@@ -346,7 +347,7 @@ function toggleTools() {
   .canvas-tools {
     flex-direction: row;
     max-width: none;
-    left: 15%;
+    left: 9%;
   }
 }
 </style>
