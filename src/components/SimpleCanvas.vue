@@ -280,7 +280,7 @@ function toggleTools() {
 
 .wrapper {
   width: 100%;
-  height: 100svh;
+  height: 100dvh;
   padding: 5px 5px 15px;
   margin: auto;
   border: 2px solid rgb(56, 55, 55);
