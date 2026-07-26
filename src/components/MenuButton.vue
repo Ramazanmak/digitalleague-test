@@ -19,9 +19,12 @@ const props = defineProps({
 </template>
 
 <style scoped>
-.menu-button {
-  font-size: 1.2em;
-  padding:0.2em 1em;
+:global(.menu-button) {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  padding:0.3em 1em;
+  text-transform: uppercase;
   background-color: var(--accent-first);
   color: var(--main-second);
   border: 1px solid  var(--main-second);
@@ -30,10 +33,16 @@ const props = defineProps({
   transition-duration: var(--main-duration);
 }
 
-.menu-button_active {
+.menu-button_active, :global(.menu-button:active) {
   background-color: var(--main-second);
   border-color: var(--accent-first);
   color: var(--accent-first);
   box-shadow: 0 0 10px 1px var(--accent-first);
+}
+
+@media (min-width: 768px) {
+  :global(.menu-button){
+    font-size: 14px;
+  }
 }
 </style>
