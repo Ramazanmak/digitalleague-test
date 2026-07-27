@@ -117,16 +117,16 @@ function draw(event) {
 
 function stopDrawing(event) {
 
-  
-  currentSnapshot.value = ctx.getImageData(0, 0, canvas.value.width, canvas.value.height);
-  history.addState(currentSnapshot.value);
-  
   if (isChanging.value){
+    currentSnapshot.value = ctx.getImageData(0, 0, canvas.value.width, canvas.value.height);
+    history.addState(currentSnapshot.value);
+  
     if (!hasMoved.value) {
-      const { x, y } = getPointerCoordinates(event);
+    const { x, y } = getPointerCoordinates(event);
       ctx.arc(x, y, ctx.lineWidth / 2, 0, 2*Math.PI);
       ctx.fill();
     }
+  
     isChanging.value = false;
     hasMoved.value = false;
   }
